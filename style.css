@@ -1,0 +1,269 @@
+/* Reset & variables */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg: linear-gradient(180deg, #eef2ff 0%, #f7fafc 100%);
+  --card: #ffffff;
+  --accent: #0b4a86; /* blue professional */
+  --accent-2: #ffb347;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --danger: #ef4444;
+}
+
+/* Body & layout */
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top nav */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(2, 6, 23, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topnav .nav-left {
+  font-weight: 700;
+  color: var(--accent);
+}
+.topnav .nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.nav-link {
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 600;
+}
+.nav-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* main container */
+.main {
+  width: 100%;
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 0 18px;
+  flex: 1;
+}
+
+/* page (full screen card) */
+.page {
+  display: none;
+  min-height: calc(100vh - 110px);
+  align-items: center;
+  justify-content: center;
+}
+.page.active {
+  display: flex;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+  width: 100%;
+  max-width: 760px;
+}
+
+/* center helper */
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Buttons */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* small helpers */
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+.progress {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.quiz-card {
+  padding: 18px;
+}
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.timer {
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+/* options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+.option-btn {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+.option-btn.correct {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+}
+.option-btn.wrong {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+}
+
+/* history list */
+.history {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+.history li {
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* certificate */
+.certificate {
+  width: 900px;
+  max-width: 900px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 6px;
+  color: #0f172a;
+}
+.cert-inner {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.cert-left {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-right {
+  flex: 1;
+  text-align: left;
+  padding: 10px;
+}
+.cert-right h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+.cert-right h2 {
+  font-size: 22px;
+  margin: 8px 0;
+  color: #1f2937;
+}
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  align-items: flex-end;
+}
+.small-muted {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.signature {
+  font-family: "Brush Script MT", "Caveat", cursive;
+  font-size: 20px;
+  color: #0b3a57;
+}
+.cert-date {
+  margin-top: 10px;
+}
+
+/* hide certificate template on screen */
+#certificateTemplate {
+  display: none;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+  .topnav .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .certificate {
+    width: 100%;
+    padding: 18px;
+  }
+  .cert-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .cert-left {
+    width: 100%;
+  }
+}
